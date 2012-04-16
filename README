@@ -10,33 +10,33 @@
 ## You must import the "maxiPago.dll" file to be able to     ##
 ## execute the methods below:                                ##
 ##                                                           ##
-## 	- Credit Card Transactions                               ##
-## 	  -- Authorization                                       ##
-## 	  -- Capture                                             ##
-## 	  -- Sale (Authorization+Capture)                        ##
-## 	  -- Token Authorization (saved card)                    ##
-## 	  -- Token Sale (saved card)                             ##
-## 	  -- Void (until 11:59pm of the same day)                ##
-## 	  -- Refund                                              ##
+##  - Credit Card Transactions                               ##
+##    -- Authorization                                       ##
+##    -- Capture                                             ##
+##    -- Sale (Authorization+Capture)                        ##
+##    -- Token Authorization (saved card)                    ##
+##    -- Token Sale (saved card)                             ##
+##    -- Void (until 11:59pm of the same day)                ##
+##    -- Refund                                              ##
 ##                                                           ##	  
-## 	- Recurring Transactions                                 ##
-## 	-- Create new recurring credit card billing              ##
+##  - Recurring Transactions                                 ##
+##  -- Create new recurring credit card billing              ##
 ##                                                           ##	
-## 	- Boleto Transactions                                    ##
-## 	-- Create new boleto                                     ##
+##  - Boleto Transactions                                    ##
+##  -- Create new boleto                                     ##
 ##                                                           ##	
-## 	- Reports                                                ##
-## 	-- Query one single transaction                          ##
-## 	-- Query a list of transactions                          ##
-## 	-- Flip through pages of a transaction list              ##
-## 	-- Query a pending report                                ##
+##  - Reports                                                ##
+##  -- Query one single transaction                          ##
+##  -- Query a list of transactions                          ##
+##  -- Flip through pages of a transaction list              ##
+##  -- Query a pending report                                ##
 ##                                                           ##	
-## 	- Customer Profile                                       ##
-## 	-- Create a profile                                      ##
-## 	-- Update a profile                                      ##
-## 	-- Remove a profile                                      ##
-## 	-- Add a credit card                                     ##
-## 	-- Remove a credit card                                  ##
+##  - Customer Profile                                       ##
+##  -- Create a profile                                      ##
+##  -- Update a profile                                      ##
+##  -- Remove a profile                                      ##
+##  -- Add a credit card                                     ##
+##  -- Remove a credit card                                  ##
 ##                                                           ##	
 ## Within each folder you will find examples for the methods ##
 ##  listed above.                                            ##
