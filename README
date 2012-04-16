@@ -1,0 +1,58 @@
+###############################################################
+##                                                           ##
+## This is the maxiPago! integration library in .NET that    ##
+## allows you to use all of the platform's functions.        ##
+##                                                           ##
+## .NET VERSION: 4.                                          ##
+##                                                           ##
+##    METHODS                                                ##
+##                                                           ##
+## You must import the "maxiPago.dll" file to be able to     ##
+## execute the methods below:                                ##
+##                                                           ##
+## 	- Credit Card Transactions                               ##
+## 	  -- Authorization                                       ##
+## 	  -- Capture                                             ##
+## 	  -- Sale (Authorization+Capture)                        ##
+## 	  -- Token Authorization (saved card)                    ##
+## 	  -- Token Sale (saved card)                             ##
+## 	  -- Void (until 11:59pm of the same day)                ##
+## 	  -- Refund                                              ##
+##                                                           ##	  
+## 	- Recurring Transactions                                 ##
+## 	-- Create new recurring credit card billing              ##
+##                                                           ##	
+## 	- Boleto Transactions                                    ##
+## 	-- Create new boleto                                     ##
+##                                                           ##	
+## 	- Reports                                                ##
+## 	-- Query one single transaction                          ##
+## 	-- Query a list of transactions                          ##
+## 	-- Flip through pages of a transaction list              ##
+## 	-- Query a pending report                                ##
+##                                                           ##	
+## 	- Customer Profile                                       ##
+## 	-- Create a profile                                      ##
+## 	-- Update a profile                                      ##
+## 	-- Remove a profile                                      ##
+## 	-- Add a credit card                                     ##
+## 	-- Remove a credit card                                  ##
+##                                                           ##	
+## Within each folder you will find examples for the methods ##
+##  listed above.                                            ##
+##                                                           ##
+##    ENVIRONMENT                                            ##
+##                                                           ##	
+## To determine the environment the transactions will be     ##
+## sent to you need to set the Environment:                  ##
+##                                                           ##
+##    - xxx.setEnvironment("TEST") - Integration             ##      
+##    - xxx.setEnvironment("LIVE") - Production              ##               
+##                                                           ##   
+##    DOCUMENTATION                                          ##
+##                                                           ##   
+## For more information please refer to our documentation at ##
+## http://www.maxipago.com/docs/maxiPago_API_Latest.pdf or   ##
+## contact us at support@maxipago.com                        ##
+##                                                           ##
+###############################################################

@@ -1,0 +1,59 @@
+###############################################################
+##                                                           ##
+## Esta é uma biblioteca .NET de integração com a plataforma ##
+## de pagamentos da maxiPago! que lhe permite executar todas ##
+## as suas funções.                                          ##
+##                                                           ##
+## .NET VERSÃO: 4.                                           ##
+##                                                           ##
+##    MÉTODOS                                                ##
+##                                                           ##
+## É preciso importar o "maxiPago.dll" para poder executar   ##
+## os métodos disponíveis:                                   ##             
+##                                                           ##
+##    - Transações de Cartão de Crédito                      ##
+##      -- Autorização                                       ##
+##      -- Captura                                           ##
+##      -- Venda Direta (Autorização+Capura)                 ##
+##      -- Autorização com Token (cartão salvo)              ##
+##      -- Venda Direta com Token (cartão salvo)             ##
+##      -- Cancelamento (até 23h59m do mesmo dia)            ##
+##      -- Estorno                                           ##
+##                                                           ##
+##    - Transações Recorrentes                               ##
+##      -- Criar nova recorrência de cartão                  ##
+##                                                           ##
+##    - Transações de Boleto                                 ##
+##      -- Criar boleto                                      ##
+##                                                           ##
+##    - Relatórios                                           ##
+##      -- Sondar uma transação                              ##
+##      -- Sondar uma lista de transações                    ##
+##      -- Paginar a lista de transações                     ##
+##      -- Sondar um relatório pendente                      ##
+##                                                           ##
+##    - Cadastro de Cliente                                  ##
+##      -- Criar um perfil                                   ##
+##      -- Atualizar um perfil                               ##
+##      -- Remover um perfil                                 ##
+##      -- Adicionar um cartão de crédito                    ##
+##      -- Remover um cartão de crédito                      ##
+##                                                           ##
+## Dentro de cada pasta você encontrará exemplos de chamadas ##
+## para os métodos listamos acima.                           ##
+##                                                           ##
+##    AMBIENTE                                               ##
+##                                                           ##
+## Para determinar o ambiente para qual a transação será     ##
+## enviada é preciso setar o Environment.                    ##
+##                                                           ##
+##   - xxx.setEnvironment("TEST") - Integração               ##
+##   - xxx.setEnvironment("LIVE") - Produção                 ##
+##                                                           ##
+##   DOCUMENTAÇÃO                                            ##
+##                                                           ##
+## Para mais informações consulte nossa documentação         ## 
+## http://www.maxipago.com/docs/maxiPago_API_Ultima.pdf      ##
+## ou no email suporte@maxipago.com                          ##
+##                                                           ##
+###############################################################
