@@ -1,6 +1,6 @@
 ## Introduction ##
 
-This **.NET** library allows for easy integration with the **maxiPago! Smart Payments** platform (<www.maxipago.com>). In order to send requests you will need valid credentials, which can be obtained from our Customer Support team at support [@] maxipago [.] com.
+This **.NET** library allows for easy integration with the **maxiPago! Smart Payments** platform ([www.maxipago.com](http://www.maxipago.com)). In order to send requests you will need valid credentials, which can be obtained from our Customer Support team at support [@] maxipago [.] com.
 
 If you'd like to get a more comprehensive view of our API you can check our full documentation at <http://www.maxipago.com/docs/maxiPago_API_Latest.pdf>.
 
