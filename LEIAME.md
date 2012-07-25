@@ -90,6 +90,8 @@ Esta é uma lista completa dos comandos que podem ser executados com esta biblio
 Você achará exemplos de cada uma das requisições neste repositório. Se você tiver alguma dúvida sobre o envio ou resposta da transação, [por favor consulte nossa documentação](http://www.maxipago.com/docs/maxiPago_API_Ultima.pdf). Você também pode entrar em contato com nosso suporte, se preferir.
 
 
-## Support ##
+## Documentação e Suporte ##
+
+[A documentação completa da API da **maxiPago!** pode ser encontrada aqui](http://www.maxipago.com/docs/maxiPago_API_Ultima.pdf).
 
 Nossa equipe de suporte está à disposição para ajudá-lo com quaisquer assunto, seja sobre funcionalidades de nossa plataforma ou sobre pagamentos em geral. Eles estão disponíveis para clientes e não-clientes no endereço suporte [@] maxipago [.] com.
