@@ -11,7 +11,18 @@ namespace MaxiPagoExample
             Transaction transaction = new Transaction();
             transaction.Environment = "TEST";
 
-            ResponseBase response = transaction.Auth("merchantId", "merchantKey", "referenceNum", "chargeTotal", "processorId", "token", "customerId", "numberOfInstallments", "chargeInterest", "ipAddress");
+            ResponseBase response = transaction.Auth(
+                "merchantId", // REQUIRED - Merchant ID assigned by maxiPago!  //
+                "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
+                "referenceNum", // REQUIRED - Merchant internal order number //
+                "chargeTotal", // REQUIRED - Transaction amount in US format //
+                "processorId", // REQUIRED - Use '1' for testing. Contact our team for production values //
+				"token", // REQUIRED - Credit card token assigned by maxiPago! //
+				"customerId", // REQUIRED - Customer ID created by maxiPago! //
+                "numberOfInstallment", // Optional - Number of installments for credit card purchases ("parcelas") //
+                "chargeInterest", // Optional - Charge interest lfag (Y/N) for installment purchase ("com" e "sem" juros) //
+                "ipAddress", // Optional //
+			);
 
             if (response.IsTransactionResponse) {
 

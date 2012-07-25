@@ -10,7 +10,11 @@ namespace MaxiPagoExample
             Api api = new Api();
             api.Environment = "TEST";
 
-            ApiResponse response = api.DeleteConsumer("merchantId", "merchantKey", "customerId");
+            ApiResponse response = api.DeleteConsumer(
+                "merchantId", // REQUIRED - Merchant ID assigned by maxiPago! //
+                "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
+                "customerId" // REQUIRED - Customer ID create by maxiPago! after the "add-customer" command //
+            );
 
             if (response.ErrorCode == "0") {
                 // Success

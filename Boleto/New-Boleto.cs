@@ -11,7 +11,27 @@ namespace MaxiPagoExample
            Transaction transaction = new Transaction();
            transaction.Environment = "TEST";
  
-           ResponseBase response = transaction.Boleto("merchantId", "merchantKey", "referenceNum", "chargeTotal", "processorId", "ipAddress", "customerIdExt", "expirationDate", "number", "instructions", "billingName", "billingAddress", "billingAddress2", "billingCity", "billingState", "billingPostalCode", "billingCountry", "billingPhone", "billingEmail");
+           ResponseBase response = transaction.Boleto(
+                "merchantId", // REQUIRED - Merchant ID assigned by maxiPago! //
+                "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
+                "referenceNum", // REQUIRED - Merchant internal order number //
+                "chargeTotal", // REQUIRED - Transaction amount in US format //
+                "processorId", // REQUIRED - Use '1' for testing. Contact our team for production values //
+                "ipAddress", // Optional //
+                "customerIdExt", // Optional - Merchant customer code //
+                "expirationDate", // REQUIRED - Boleto expiration date (YYYY-MM-DD format) //
+                "number", // REQUIRED and UNIQUE - Boleto number with maximum of 8 numbers //
+                "instructions", // Optional - Instructions printed in the boleto slip //
+                "billingName", // REQUIRED - Customer name //
+                "billingAddress", // Optional - Customer address //
+                "billingAddress2", // Optional - Customer address //
+                "billingCity", // Optional - Customer city //
+                "billingState", // Optional - Customer state with 2 characters //
+                "billingPostalCode", // Optional - Customer zip code //
+                "billingCountry", // Optional - Customer country code per ISO 3166-2 //
+                "billingPhone", // Optional - Customer phone number //
+                "billingEmail" // Optional - Customer email address //
+                );
  
            if (response.IsTransactionResponse) {
  
