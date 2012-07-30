@@ -15,7 +15,7 @@ namespace MaxiPagoExample
                 "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
                 "customerId", // REQUIRED - Customer ID created by maxiPago! after the "add-customer" command //
                 "token" // REQUIRED - Credit card token create by maxiPago! //
-);
+			);
 
             if (response.ErrorCode == "0") {
                 // Success

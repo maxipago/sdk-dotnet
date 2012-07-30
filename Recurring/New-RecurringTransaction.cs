@@ -29,7 +29,7 @@ namespace MaxiPagoExample
 				"action", // REQUIRED for this command - Always 'new' //
 				"startDate", // REQUIRED for this command - Date of the 1st purchase (YYYY-MM-DD format) //
 				"frequency", // REQUIRED for this command - Billing frequency ("1", "3", "6", ...) //
-				"period", // REQUIRED for this command - Period of billing ("daily", "weekly" or "monthly" //
+				"period", // REQUIRED for this command - Period of billing ("daily", "weekly" or "monthly") //
 				"installments", // REQUIRED for this command - Number of payments to be executed //
 				"failureThreshold" // REQUIRED for this command - Number of retries if transaction failed //
 			);

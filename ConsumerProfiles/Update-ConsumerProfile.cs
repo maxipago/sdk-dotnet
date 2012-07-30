@@ -11,7 +11,7 @@ namespace MaxiPagoExample
             api.Environment = "TEST";
 
             ApiResponse response = api.UpdateConsumer(
-            "merchantId", // REQUIRED - Merchant ID assigned by maxiPago! //
+            	"merchantId", // REQUIRED - Merchant ID assigned by maxiPago! //
                 "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
                 "customerIdExt", // Optional - Internal merchant customer code //
                 "firstName", // REQUIRED - Customer first name //

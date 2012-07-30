@@ -31,7 +31,7 @@ namespace MaxiPagoExample
                 "billingCountry", // Optional - Customer country code per ISO 3166-2 //
                 "billingPhone", // Optional - Customer phone number //
                 "billingEmail" // Optional - Customer email address //
-                );
+           );
  
            if (response.IsTransactionResponse) {
  
