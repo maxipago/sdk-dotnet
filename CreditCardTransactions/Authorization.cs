@@ -30,23 +30,23 @@ namespace MaxiPagoExample
 
 			// FULL WORKING EXAMPLE
 			//
-            //   ResponseBase response = transaction.Auth(
-			//		 merchantId:				"100",
-			//		 merchantKey:				"secret-key",
-			//		 referenceNum:			"TestTransaction123",
-			//		 chargeTotal:				1.00,
-			// 		creditCardNumber:		"5555555555554444",
-			// 		expMonth:				"10",
-			//		 expYear:					"2020",
-			// 		cvvInd:					"",
-			//		 cvvNumber:				"123",
-			//		 authentication:			"noAuthentication",
-			// 		processorID:				"1",
-			// 		numberOfInstallments:	"2",
-			// 		chargeInterest:			"N",
-			// 		ipAddress:				"123.123.123.123",
-			// 		customerIdExt:			""
-			);
+			//	ResponseBase response = transaction.Auth(
+			//	merchantId: "100",
+			//	merchantKey: "secret-key",
+			//	referenceNum: "TestTransaction123",
+			//	chargeTotal: 1.00,
+			//	creditCardNumber: "5555555555554444",
+			//	expMonth: "10",
+			//	expYear: "2020",
+			//	cvvInd: "",
+			//	cvvNumber: "123",
+			//	authentication: "noAuthentication",
+			//	processorID: "1",
+			//	numberOfInstallments: "2",
+			//	chargeInterest: "N",
+			//	ipAddress: "123.123.123.123",
+			//	customerIdExt: ""
+			//	);
 
             if (response.IsTransactionResponse) {
                 TransactionResponse result = response as TransactionResponse;
