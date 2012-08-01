@@ -38,7 +38,8 @@ namespace MaxiPagoExample
                 "billingPostalCode", // Optional - Customer zip code //
                 "billingCountry", // Optional - Customer country per ISO 3166-2 //
                 "billingPhone", // Optional - Customer phone number //
-                "billingEmail" // Optional - Customer email address //
+                "billingEmail", // Optional - Customer email address //
+				"currencyCode" // Optional - Currency code. Valid only for ChasePaymentech. Please see full documentation for more info //
             );
 
             if (response.IsTransactionResponse) {

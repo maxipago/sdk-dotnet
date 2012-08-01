@@ -25,7 +25,7 @@ namespace MaxiPagoExample
                 "numberOfInstallment", // Optional - Number of installments for credit card purchases ("parcelas") //
                 "chargeInterest", // Optional - Charge interest lfag (Y/N) for installment purchase ("com" e "sem" juros) //
                 "ipAddress", // Optional //
-				"customerToken", // REQUIRED - Customer ID created by maxiPago! //
+                "customerToken", // REQUIRED - Customer ID replied by maxiPago! after creating a customer profile //
                 "onFileEndDate", // Optional - Date the credit card token will no longer be available for use //
                 "onFilePermission", // Optional - Sets period of use of token: 'ongoing' or 'use_once' //
                 "onFileComment", // Optional //
@@ -38,7 +38,8 @@ namespace MaxiPagoExample
                 "billingPostalCode", // Optional - Customer zip code //
                 "billingCountry", // Optional - Customer country per ISO 3166-2 //
                 "billingPhone", // Optional - Customer phone number //
-                "billingEmail" // Optional - Customer email address //
+                "billingEmail", // Optional - Customer email address //
+				"currencyCode" // Optional - Currency code. Valid only for ChasePaymentech. Please see full documentation for more info //
 			);
 
             if (response.IsTransactionResponse) {
