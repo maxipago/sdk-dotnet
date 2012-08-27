@@ -24,7 +24,7 @@ namespace MaxiPagoExample
 				"authentication", // Optional - Valid only for Cielo. Please see full documentation for more info //
 				"processorId", // REQUIRED - Use '1' for testing. Contact our team for production values //
 				"numberOfInstallment", // Optional - Number of installments for credit card purchases ("parcelas") //
-				"chargeInterest", // Optional - Charge interest lfag (Y/N) for installment purchase ("com" e "sem" juros) //
+				"chargeInterest", // Optional - Charge interest flag (Y/N) for installment purchase ("com" e "sem" juros) //
 				"ipAddress", // Optional //
 				"customerIdExt" // Optional, Merchant internal customer number //
 				"billingName", // RECOMMENDED - Customer name //

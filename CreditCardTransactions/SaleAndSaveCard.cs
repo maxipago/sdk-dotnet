@@ -6,12 +6,12 @@ namespace MaxiPagoExample
 {
     class Program 
     {
-        static void Main(string[] args)   
+        static void Main(string[] args) 
         {
             Transaction transaction = new Transaction();
             transaction.Environment = "TEST";
 
-			ResponseBase response = transaction.Recurring(
+            ResponseBase response = transaction.Sale(
                 "merchantId", // REQUIRED - Merchant ID assigned by maxiPago!  //
                 "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
                 "referenceNum", // REQUIRED - Merchant internal order number //
@@ -25,24 +25,32 @@ namespace MaxiPagoExample
                 "numberOfInstallment", // Optional - Number of installments for credit card purchases ("parcelas") //
                 "chargeInterest", // Optional - Charge interest flag (Y/N) for installment purchase ("com" e "sem" juros) //
                 "ipAddress", // Optional //
-                "customerIdExt" // Optional, Merchant internal customer number // 
-				"action", // REQUIRED for this command - Always 'new' //
-				"startDate", // REQUIRED for this command - Date of the 1st purchase (YYYY-MM-DD format) //
-				"frequency", // REQUIRED for this command - Billing frequency ("1", "3", "6", ...) //
-				"period", // REQUIRED for this command - Period of billing ("daily", "weekly" or "monthly") //
-				"installments", // REQUIRED for this command - Number of payments to be executed //
-				"failureThreshold" // REQUIRED for this command - Number of retries if transaction failed //
+                "customerToken", // REQUIRED - Customer ID replied by maxiPago! after creating a customer profile //
+                "onFileEndDate", // Optional - Date the credit card token will no longer be available for use //
+                "onFilePermission", // Optional - Sets period of use of token: 'ongoing' or 'use_once' //
+                "onFileComment", // Optional //
+                "onFileMaxChargeAmount", // Optional - Maximum amount this card can be charged //
+                "billingName", // RECOMMENDED - Customer name //
+                "billingAddress", // Optional - Customer address //
+                "billingAddress2", // Optional - Customer address //
+                "billingCity", // Optional - Customer city //
+                "billingState", // Optional - Customer state with 2 characters //
+                "billingPostalCode", // Optional - Customer zip code //
+                "billingCountry", // Optional - Customer country per ISO 3166-2 //
+                "billingPhone", // Optional - Customer phone number //
+                "billingEmail", // Optional - Customer email address //
+				"currencyCode" // Optional - Currency code. Valid only for ChasePaymentech. Please see full documentation for more info //
 			);
 
             if (response.IsTransactionResponse) {
-                
+
                 TransactionResponse result = response as TransactionResponse;
 
                 if (result.ResponseCode == "0") {
                     // Success
                 }
                 else {
-                    // Declined
+                    // Decline
                 }
             }
             else if (response.IsErrorResponse) {
