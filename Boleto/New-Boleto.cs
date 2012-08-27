@@ -16,7 +16,7 @@ namespace MaxiPagoExample
                 "merchantKey", // REQUIRED - Merchant Key assigned by maxiPago! //
                 "referenceNum", // REQUIRED - Merchant internal order number //
                 "chargeTotal", // REQUIRED - Transaction amount in US format //
-                "processorId", // REQUIRED - Use '1' for testing. Contact our team for production values //
+                "processorId", // REQUIRED - Use '12' for Boleto testing. Contact our team for production values //
                 "ipAddress", // Optional //
                 "customerIdExt", // Optional - Merchant customer code //
                 "expirationDate", // REQUIRED - Boleto expiration date (YYYY-MM-DD format) //
