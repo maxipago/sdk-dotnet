@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D86C2984-68FA-49E5-A0F1-26780C669200}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MaxiPago</RootNamespace>
+    <AssemblyName>maxiPago</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataContract\NonTransactional\ApiRequest.cs" />
+    <Compile Include="DataContract\NonTransactional\ApiResponse.cs" />
+    <Compile Include="DataContract\NonTransactional\ApiResult.cs" />
+    <Compile Include="DataContract\Transactional\Billing.cs" />
+    <Compile Include="DataContract\Transactional\Boleto.cs" />
+    <Compile Include="DataContract\Transactional\CaptureOrReturn.cs" />
+    <Compile Include="DataContract\Transactional\ClientData.cs" />
+    <Compile Include="DataContract\Transactional\Address.cs" />
+    <Compile Include="DataContract\NonTransactional\CommandRequest.cs" />
+    <Compile Include="DataContract\Transactional\CreditCard.cs" />
+    <Compile Include="DataContract\Transactional\CreditInstallment.cs" />
+    <Compile Include="DataContract\Transactional\ErrorResponse.cs" />
+    <Compile Include="DataContract\Transactional\OnFile.cs" />
+    <Compile Include="DataContract\Transactional\Recurring.cs" />
+    <Compile Include="DataContract\Reports\FilterOptions.cs" />
+    <Compile Include="DataContract\Reports\HeaderResponse.cs" />
+    <Compile Include="DataContract\Reports\RapiRequest.cs" />
+    <Compile Include="DataContract\Reports\RapiResponse.cs" />
+    <Compile Include="DataContract\Reports\Record.cs" />
+    <Compile Include="DataContract\Reports\Records.cs" />
+    <Compile Include="DataContract\Reports\ReportRequest.cs" />
+    <Compile Include="DataContract\Reports\ReportResult.cs" />
+    <Compile Include="DataContract\Reports\ResultSetInfo.cs" />
+    <Compile Include="DataContract\ResponseBase.cs" />
+    <Compile Include="DataContract\Transactional\SaveOnFile.cs" />
+    <Compile Include="DataContract\Transactional\SaveOnFileResponse.cs" />
+    <Compile Include="DataContract\ServiceBase.cs" />
+    <Compile Include="DataContract\Transactional\Shipping.cs" />
+    <Compile Include="DataContract\Verification.cs" />
+    <Compile Include="DataContract\Transactional\Order.cs" />
+    <Compile Include="DataContract\Transactional\Payment.cs" />
+    <Compile Include="DataContract\Transactional\PayType.cs" />
+    <Compile Include="DataContract\Transactional\RequestBase.cs" />
+    <Compile Include="DataContract\Transactional\TransactionDetail.cs" />
+    <Compile Include="DataContract\Transactional\TransactionRequest.cs" />
+    <Compile Include="DataContract\Transactional\TransactionResponse.cs" />
+    <Compile Include="DataContract\Transactional\Void.cs" />
+    <Compile Include="Gateway\Api.cs" />
+    <Compile Include="Gateway\Report.cs" />
+    <Compile Include="Gateway\Transaction.cs" />
+    <Compile Include="Gateway\Utils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
