@@ -18,7 +18,6 @@ namespace MaxiPago.Gateway
 
         private ApiRequest request;
 
-        /// Adds a customer profile
         public ApiResponse AddConsumer(String merchantId, String merchantKey, String customerIdExt, String firstName, String lastName
                                         , String address1, String address2, String city, String state, String zip, String phone, String email
                                         , String dob, String ssn, String sex)
@@ -48,7 +47,6 @@ namespace MaxiPago.Gateway
             return new Utils().SendRequest<ApiRequest>(this.request, this.Environment) as ApiResponse;
         }
 
-        /// Deletes a customer profile
         public ApiResponse DeleteConsumer(String merchantId, String merchantKey, String customerId)
         {
 
@@ -64,7 +62,6 @@ namespace MaxiPago.Gateway
 
         }
 
-        /// Updates a customer profile
         public ApiResponse UpdateConsumer(String merchantId, String merchantKey, String customerId, String customerIdExt, String firstName
                                         , String lastName, String address1, String address2, String city, String state, String zip, String phone
                                         , String email, String dob, String ssn, String sex)
@@ -95,10 +92,10 @@ namespace MaxiPago.Gateway
 
         }
 
-        /// Saves a card on file
         public ApiResponse AddCardOnFile(String merchantId, String merchantKey, String customerId, String creditCardNumber, String expirationMonth
                                         , String expirationYear, String billingName, String billingAddress1, String billingAddress2, String billingCity
-                                        , String billingState, String billingZip, String billingCountry, String billingPhone, String billingEmail)
+                                        , String billingState, String billingZip, String billingCountry, String billingPhone, String billingEmail
+                                        , String onFileEndDate, String onFilePermission, String onFileComment, String onFileMaxChargeAmount)
         {
 
             this.request = new ApiRequest(merchantId, merchantKey);
@@ -120,12 +117,15 @@ namespace MaxiPago.Gateway
             commandRequest.BillingCountry = billingCountry;
             commandRequest.BillingPhone = billingPhone;
             commandRequest.BillingEmail = billingEmail;
+            commandRequest.OnFileEndDate = onFileEndDate;
+            commandRequest.OnFilePermission = onFilePermission;
+            commandRequest.OnFileComment = onFileComment;
+            commandRequest.OnFileMaxChargeAmount = onFileMaxChargeAmount;
 
             return new Utils().SendRequest<ApiRequest>(this.request, this.Environment) as ApiResponse;
 
         }
 
-        /// Deletes a card on file
         public ApiResponse DeleteCardOnFile(String merchantId, String merchantKey, String customerId, String token)
         {
 
@@ -142,7 +142,6 @@ namespace MaxiPago.Gateway
 
         }
 
-        /// Cancels a recurring payment
         public ApiResponse CancelRecurring(String merchantId, String merchantKey, String orderID)
         {
 

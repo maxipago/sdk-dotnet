@@ -122,5 +122,21 @@ namespace MaxiPago.DataContract.NonTransactional {
         public string Token { get; set; }
         public bool ShouldSerializeToken() { return !string.IsNullOrEmpty(this.Token); }
 
+        [XmlElement("onFileEndDate")]
+        public string OnFileEndDate { get; set; }
+        public bool ShouldSerializeOnFileEndDate() { return !string.IsNullOrEmpty(this.OnFileEndDate); }
+
+        [XmlElement("onFilePermissions")]
+        public string OnFilePermission { get; set; }
+        public bool ShouldSerializeOnFilePermission() { return !string.IsNullOrEmpty(this.OnFilePermission); }
+
+        [XmlElement("onFileComment")]
+        public string OnFileComment { get; set; }
+        public bool ShouldSerializeOnFileComment() { return !string.IsNullOrEmpty(this.OnFileComment); }
+
+        [XmlElement("onFileMaxChargeAmount")]
+        public string OnFileMaxChargeAmount { get; set; }
+        public bool ShouldSerializeOnFileMaxChargeAmount() { return !string.IsNullOrEmpty(this.OnFileMaxChargeAmount); }
+
     }
 }
