@@ -25,7 +25,11 @@ namespace MaxiPagoExample
                 "billingZip", // REQUIRED - Customer zip code //
                 "billingCountry", // REQUIRED - Customer country code per ISO 3166-2 //
                 "billingPhone", // REQUIRED - Customer phone number //
-                "billingEmail" // REQUIRED - Customer email address //
+                "billingEmail", // REQUIRED - Customer email address //
+				"2015-12-25", // 'onFileEndDate' - Optional: date we no longer accept transactions with this card//
+				null, // 'onFilePermissions' - Optional: permission option for this card. Default is 'null' //
+				"Card belongs to John Doe", // 'onFileComments' - Optional: comments associated with this card //
+				"1000.00" // 'onFileMaxChargeAmount' - Optional: maximum amount this card can be charged //
             );
 
             if (response.ErrorCode == "0") {
