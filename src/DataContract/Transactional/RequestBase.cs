@@ -26,6 +26,14 @@ namespace MaxiPago.DataContract.Transactional {
         [XmlElement("ipAddress")]
         public string IpAddress { get; set; }
 
+        [XmlElement("fraudCheck")]
+        public string FraudCheck { get; set; }
+        // Verifica se o valor da propriedade é nulo, se sim, não serializa esse campo no xml
+        public bool ShouldSerializeFraudCheck() { return this.FraudCheck != null; }
+
+        //[XmlElement("invoiceNumber")]
+        //public string InvoiceNumber { get; set; }
+
         [XmlElement("billing")]
         public Billing Billing { get; set; }
         public bool ShouldSerializeBilling() { return this.Billing != null; }
