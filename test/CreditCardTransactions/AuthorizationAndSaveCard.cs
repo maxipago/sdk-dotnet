@@ -23,6 +23,7 @@ namespace MaxiPagoExample
                 "cvvNumber", // RECOMMENDED - Credit card verification number //
                 "processorId", // REQUIRED - Use '1' for testing. Contact our team for production values //
                 "numberOfInstallment", // Optional - Number of installments for credit card purchases ("parcelas") //
+									   // Send 'null' if no installments are used //
                 "chargeInterest", // Optional - Charge interest flag (Y/N) for installment purchase ("com" e "sem" juros) //
                 "ipAddress", // Optional //
                 "customerToken", // REQUIRED - Customer ID replied by maxiPago! after creating a customer profile //

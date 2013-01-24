@@ -20,6 +20,7 @@ namespace MaxiPagoExample
 				"token", // REQUIRED - Credit card token assigned by maxiPago! //
 				"customerId", // REQUIRED - Customer ID created by maxiPago! //
                 "numberOfInstallment", // Optional - Number of installments for credit card purchases ("parcelas") //
+									   // Send 'null' if no installments are used //
                 "chargeInterest", // Optional - Charge interest flag (Y/N) for installment purchase ("com" e "sem" juros) //
                 "ipAddress", // Optional //
 				"customerIdExt", // Optional, Merchant internal customer number //
