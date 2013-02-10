@@ -13,7 +13,7 @@ Setup is pretty straightforward: simply download the [maxiPago.dll](http://www.m
 
 To import use the following code:
 
-```dotnet
+```csharp
 	using MaxiPago.DataContract;
 	using MaxiPago.Gateway;
 ```
@@ -26,7 +26,7 @@ In order to send requests you will need valid Merchant Credentials. They can be 
 
 The environment can be set using:
 
-```dotnet
+```csharp
 	transaction.Environment = "TEST";
 	transaction.Environment = "LIVE";
 ```

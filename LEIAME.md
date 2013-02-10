@@ -13,7 +13,7 @@ Configurar a biblioteca é bem simples: basta baixar o arquivo [maxiPago.dll](ht
 
 Para importação use o código a seguir:
 
-```dotnet
+```csharp
 	using MaxiPago.DataContract;
 	using MaxiPago.Gateway;
 ```
@@ -26,7 +26,7 @@ A **maxiPago!** oferece um ambiente de teste (*"sandbox"*) totalmente funcional 
 
 Para definier o ambiente use este código:
 
-```dotnet
+```csharp
 	transaction.Environment = "TEST";
 	transaction.Environment = "LIVE";
 ```
