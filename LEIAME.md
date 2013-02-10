@@ -56,33 +56,33 @@ Você também precisa informar as suas Credenciais colocando as variáveis **mer
 
 Esta é uma lista completa dos comandos que podem ser executados com esta biblioteca.
 
-* **Transações de Cartão de Crédito**
- * Autorização 
- * Captura 
- * Venda Direta (Autorização + Capura) 
- * Autorização com Token (cartão salvo)
- * Venda Direta com Token (cartão salvo) 
- * Cancelamento (*Void*)
- * Estorno 
+#####Transações de Cartão de Crédito#####
+* Autorização 
+* Captura 
+* Venda Direta (Autorização + Capura) 
+* Autorização com Token (cartão salvo)
+* Venda Direta com Token (cartão salvo) 
+* Cancelamento (*Void*)
+* Estorno 
  
-* **Transações Recorrentes**
- * Criar nova recorrência
+#####Transações Recorrentes#####
+* Criar nova recorrência
  
-* **Transações de Boleto**
- * Criar boleto
+#####Transações de Boleto#####
+* Criar boleto
  
-* **Relatórios**
- * Sondar uma transação
- * Sondar uma lista de transações
- * Paginar a lista de transações 
- * Sondar um relatório pendente
+#####Relatórios#####
+* Sondar uma transação
+* Sondar uma lista de transações
+* Paginar a lista de transações 
+* Sondar um relatório pendente
  
-* **Cadastro de Cliente / Salvar Cartão**
- * Criar um perfil  *(um perfil de cliente precisa ser criado antes de se salvar um cartão)*
- * Atualizar um perfil 
- * Remover um perfil 
- * Adicionar um cartão de crédito
- * Remover um cartão de crédito
+#####Cadastro de Cliente / Salvar Cartão#####
+* Criar um perfil  *(um perfil de cliente precisa ser criado antes de se salvar um cartão)*
+* Atualizar um perfil 
+* Remover um perfil 
+* Adicionar um cartão de crédito
+* Remover um cartão de crédito
 
 
 ## Requisições ##
