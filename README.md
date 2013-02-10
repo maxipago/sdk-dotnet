@@ -13,9 +13,10 @@ Setup is pretty straightforward: simply download the [maxiPago.dll](http://www.m
 
 To import use the following code:
 
-		using MaxiPago.DataContract;
-		using MaxiPago.Gateway;
-
+```dotnet
+	using MaxiPago.DataContract;
+	using MaxiPago.Gateway;
+```
 
 ## Environment and Credentials ##
 
@@ -25,8 +26,10 @@ In order to send requests you will need valid Merchant Credentials. They can be 
 
 The environment can be set using:
 
-		transaction.Environment = "TEST";
-		transaction.Environment = "LIVE";
+```dotnet
+	transaction.Environment = "TEST";
+	transaction.Environment = "LIVE";
+```
 
 You also need to provide your Merchant Credentials, which is done by adding the **merchantId** and **merchantKey** fields in each request made.
 
