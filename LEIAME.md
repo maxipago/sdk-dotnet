@@ -13,9 +13,10 @@ Configurar a biblioteca é bem simples: basta baixar o arquivo [maxiPago.dll](ht
 
 Para importação use o código a seguir:
 
-		using MaxiPago.DataContract;
-		using MaxiPago.Gateway;
-
+```dotnet
+	using MaxiPago.DataContract;
+	using MaxiPago.Gateway;
+```
 
 ## Ambiente e Credenciais ##
 
@@ -25,8 +26,10 @@ A **maxiPago!** oferece um ambiente de teste (*"sandbox"*) totalmente funcional 
 
 Para definier o ambiente use este código:
 
-		transaction.Environment = "TEST";
-		transaction.Environment = "LIVE";
+```dotnet
+	transaction.Environment = "TEST";
+	transaction.Environment = "LIVE";
+```
 
 Você também precisa informar as suas Credenciais colocando as variáveis **merchantId** e **merchantKey** em cada requisição
 
