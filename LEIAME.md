@@ -99,7 +99,7 @@ Nossa equipe de suporte está à disposição para ajudá-lo com quaisquer assun
 ## Licença ##
 
 Biblioteca de integração para o **Gateway de Pagamento maxiPago!**     
-**_Copyright (C) 2012, maxiPago!_**
+**_Copyright (C) 2013, maxiPago!_**
 
 Este programa é um software livre; você pode redistribui-lo e/ou modifica-lo dentro dos termos da Licença Pública Geral GNU como publicada pela Fundação do Software Livre (FSF); na versão 2 da Licença, ou (na sua opnião) qualquer versão.
 

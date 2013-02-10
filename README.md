@@ -104,7 +104,7 @@ Our support team is happy to help you with any questions you might have, be it a
 ## License ##
 
 Library for integration with the **maxiPago! Payment Gateway**     
-**_Copyright (C) 2012, maxiPago!_**        
+**_Copyright (C) 2013, maxiPago!_**        
                                                                       
 This program is free software: you can redistribute it and/or modify  it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.                                   
                                                                       
