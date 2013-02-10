@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Dotnet-integration-lib by maxipago</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Dotnet-integration-lib</h1>
+        <p>maxiPago! Smart Payments - .NET integration lib for our payment gateway</p>
+        <p class="view"><a href="https://github.com/maxipago/DotNet-Integration-lib">View the Project on GitHub <small>maxipago/DotNet-Integration-lib</small></a></p>
+        <ul>
+          <li><a href="https://github.com/maxipago/DotNet-Integration-lib/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/maxipago/DotNet-Integration-lib/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/maxipago/DotNet-Integration-lib">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Introduction</h2>
+
+<p>This <strong>.NET</strong> library allows for easy integration with the <strong>maxiPago! Smart Payments</strong> API. Our payment platform allows online merchants to accept payments in many countries in Latin America, and the US, and includes such functionalities as Automated Recurring Billing, "Single-Click" payments, Online Returns, Credit Card Payment Reconciliation, Fraud Tools and more. You can find out more about <strong>maxiPago!</strong> by visiting <a href="http://www.maxipago.com/">www.maxipago.com</a>.</p>
+
+<p>This library has all the functionalities currently available through our XML-based API and can be freely copied and used by Merchants and developers.</p>
+
+<p>You can get a more comprehensive view of our API by our documentation, <a href="http://www.maxipago.com/docs/maxiPago_API_Latest.pdf">which can be downloaded here</a>. If you are looking for a hosted payment page solution, please see the section <strong>smartPages!</strong>.</p>
+
+<h2>Setup</h2>
+
+<p>Setup is pretty straightforward: simply download the <a href="http://www.maxipago.com/docs/maxiPago.dll.zip">maxiPago.dll</a> file, copy it to your server and import it.</p>
+
+<p>To import use the following code:</p>
+
+<pre><code>    using MaxiPago.DataContract;
+    using MaxiPago.Gateway;
+</code></pre>
+
+<h2>Environment and Credentials</h2>
+
+<p>In order to send requests you will need valid Merchant Credentials. They can be obtained with our Customer Support team at support [@] maxipago [.] com.</p>
+
+<p><strong>maxiPago!</strong> provides a fully functional sandbox environment to simulate the transaction responses. You need to set the environment so the library knows where to send the transaction to.</p>
+
+<p>The environment can be set using:</p>
+
+<pre><code>    transaction.Environment = "TEST";
+    transaction.Environment = "LIVE";
+</code></pre>
+
+<p>You also need to provide your Merchant Credentials, which is done by adding the <strong>merchantId</strong> and <strong>merchantKey</strong> fields in each request made.</p>
+
+<h2>Available transaction types</h2>
+
+<ul>
+<li><p><strong>Authorization:</strong> checks if the credit card used is valid (number, security code and expiration date) and if the card holder has sufficient funds for that purchase.</p></li>
+<li><p><strong>Capture:</strong> confirms the authorization previously made and completes the transaction. If the transaction is never captured the Merchant does not receive the funds and the Card Holder is never charged.</p></li>
+</ul><blockquote>
+<p><em>Separating the authorization and capture in two different moments is an excellent way to check if you have the purchased items in stock or to run a fraud check, while still guaranteeing payment.</em></p>
+</blockquote>
+
+<ul>
+<li><p><strong>Sale:</strong> combines the authorization and the capture in a single request. When performing a Sale we send the credit card for authorization and immediately captures that transaction, if approved.</p></li>
+<li><p><strong>Void:</strong> cancels the transaction and no money is charged from the buyer. You can only void a transaction until 11:59pm of the day of capture.</p></li>
+<li><p><strong>Return:</strong> reverses a credit card transaction, taking funds from the Merchant and giving them back to the buyer. This is a financial operation that might take a few days to be completed, depending on your credit card processor.</p></li>
+<li><p><strong>Recurring:</strong> schedules a credit card transaction to be charged at a specific interval, defined by the Merchant.</p></li>
+<li><p><strong>Card On File:</strong> saves a card in our system and returns a unique token, which can be used to process future transactions. <strong>It's an excellent way to implement "single-click" payments.</strong></p></li>
+<li><p><strong>Boleto:</strong> <em>(Brazil only)</em> Transactions made with Boletos are different than credit card purchases. This creates a boleto and returns an URL to the buyer to access the boleto payment slip. It can be accessed at any time before the boleto expiration and up to 60 days after it has expired.</p></li>
+</ul><h2>Available methods</h2>
+
+<p>This is the complete list of actions that can be executed using this library</p>
+
+<h4>Credit Card Transactions</h4>
+
+<ul>
+<li>Authorization</li>
+<li>Capture</li>
+<li>Sale (Authorization + Capture)</li>
+<li>Token Authorization (Authorization with saved card) </li>
+<li>Token Sale (Sale with saved card)</li>
+<li>Automatically save card </li>
+<li>Void</li>
+<li>Refund</li>
+</ul><h4>Recurring Transactions</h4>
+
+<ul>
+<li>Create recurring credit card billing </li>
+</ul><h4>Boleto Transactions</h4>
+
+<ul>
+<li>Create boleto payment slip (Brazil only)</li>
+</ul><h4>Reports</h4>
+
+<ul>
+<li>Query one single transaction </li>
+<li>Query a list of transactions </li>
+<li>Flip through pages of a transaction list </li>
+<li>Query a pending report </li>
+</ul><h4>Customer Profile / Card On File</h4>
+
+<ul>
+<li>Create a profile <em>(a customer profile must be created before saving a card)</em>
+</li>
+<li>Update a profile </li>
+<li>Remove a profile </li>
+<li>Add a credit card</li>
+<li>Remove a credit card</li>
+</ul><h2>Requests</h2>
+
+<p>You can find examples of each individual request type in this repository. If you have questions about the requests or responses received, <a href="http://www.maxipago.com/docs/maxiPago_API_Latest.pdf">please see our documentation</a>. You can also contact our Support Team if you'd like.</p>
+
+<h2>Documentation and Support</h2>
+
+<p><a href="http://www.maxipago.com/docs/maxiPago_API_Latest.pdf"><strong>maxiPago!</strong>'s full API documentation can be found here</a>.</p>
+
+<p>Our support team is happy to help you with any questions you might have, be it about the functionalities of our platform or about payments in general. They are available to customers and non-customers alike and can be reached at support [@] maxipago [.] com.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/maxipago">maxipago</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
