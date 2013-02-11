@@ -27,7 +27,18 @@
         </ul>
       </header>
       <section>
-        <h2>Introduction</h2>
+        <h2>Index</h2>
+
+<ol>
+<li><a href="#intro">Intro</a></li>
+<li><a href="#setup">Setup</a></li>
+<li><a href="#credentials">Environment and Credentials</a></li>
+<li><a href="#types">Transaction types</a></li>
+<li><a href="#methods">Methods</a></li>
+<li><a href="#requests">Request</a></li>
+<li><a href="#support">Support</a></li>
+</ol><h2>Introduction <a></a>
+</h2>
 
 <p>This <strong>.NET</strong> library allows for easy integration with the <strong>maxiPago! Smart Payments</strong> API. Our payment platform allows online merchants to accept payments in many countries in Latin America, and the US, and includes such functionalities as Automated Recurring Billing, "Single-Click" payments, Online Returns, Credit Card Payment Reconciliation, Fraud Tools and more. You can find out more about <strong>maxiPago!</strong> by visiting <a href="http://www.maxipago.com/">www.maxipago.com</a>.</p>
 
@@ -35,17 +46,19 @@
 
 <p>You can get a more comprehensive view of our API by our documentation, <a href="http://www.maxipago.com/docs/maxiPago_API_Latest.pdf">which can be downloaded here</a>. If you are looking for a hosted payment page solution, please see the section <strong>smartPages!</strong>.</p>
 
-<h2>Setup</h2>
+<h2>Setup <a></a>
+</h2>
 
 <p>Setup is pretty straightforward: simply download the <a href="http://www.maxipago.com/docs/maxiPago.dll.zip">maxiPago.dll</a> file, copy it to your server and import it.</p>
 
 <p>To import use the following code:</p>
 
-<pre><code>    using MaxiPago.DataContract;
-    using MaxiPago.Gateway;
-</code></pre>
+<div class="highlight"><pre>    <span class="k">using</span> <span class="nn">MaxiPago.DataContract</span><span class="p">;</span>
+    <span class="k">using</span> <span class="nn">MaxiPago.Gateway</span><span class="p">;</span>
+</pre></div>
 
-<h2>Environment and Credentials</h2>
+<h2>Environment and Credentials <a></a>
+</h2>
 
 <p>In order to send requests you will need valid Merchant Credentials. They can be obtained with our Customer Support team at support [@] maxipago [.] com.</p>
 
@@ -53,13 +66,14 @@
 
 <p>The environment can be set using:</p>
 
-<pre><code>    transaction.Environment = "TEST";
-    transaction.Environment = "LIVE";
-</code></pre>
+<div class="highlight"><pre>    <span class="n">transaction</span><span class="p">.</span><span class="n">Environment</span> <span class="p">=</span> <span class="s">"TEST"</span><span class="p">;</span>
+    <span class="n">transaction</span><span class="p">.</span><span class="n">Environment</span> <span class="p">=</span> <span class="s">"LIVE"</span><span class="p">;</span>
+</pre></div>
 
 <p>You also need to provide your Merchant Credentials, which is done by adding the <strong>merchantId</strong> and <strong>merchantKey</strong> fields in each request made.</p>
 
-<h2>Available transaction types</h2>
+<h2>Available transaction types <a></a>
+</h2>
 
 <ul>
 <li><p><strong>Authorization:</strong> checks if the credit card used is valid (number, security code and expiration date) and if the card holder has sufficient funds for that purchase.</p></li>
@@ -75,7 +89,8 @@
 <li><p><strong>Recurring:</strong> schedules a credit card transaction to be charged at a specific interval, defined by the Merchant.</p></li>
 <li><p><strong>Card On File:</strong> saves a card in our system and returns a unique token, which can be used to process future transactions. <strong>It's an excellent way to implement "single-click" payments.</strong></p></li>
 <li><p><strong>Boleto:</strong> <em>(Brazil only)</em> Transactions made with Boletos are different than credit card purchases. This creates a boleto and returns an URL to the buyer to access the boleto payment slip. It can be accessed at any time before the boleto expiration and up to 60 days after it has expired.</p></li>
-</ul><h2>Available methods</h2>
+</ul><h2>Available methods <a></a>
+</h2>
 
 <p>This is the complete list of actions that can be executed using this library</p>
 
@@ -114,15 +129,17 @@
 <li>Remove a profile </li>
 <li>Add a credit card</li>
 <li>Remove a credit card</li>
-</ul><h2>Requests</h2>
+</ul><h2>Requests <a></a>
+</h2>
 
 <p>You can find examples of each individual request type in this repository. If you have questions about the requests or responses received, <a href="http://www.maxipago.com/docs/maxiPago_API_Latest.pdf">please see our documentation</a>. You can also contact our Support Team if you'd like.</p>
 
-<h2>Documentation and Support</h2>
+<h2>Documentation and Support <a></a>
+</h2>
 
 <p><a href="http://www.maxipago.com/docs/maxiPago_API_Latest.pdf"><strong>maxiPago!</strong>'s full API documentation can be found here</a>.</p>
 
-<p>Our support team is happy to help you with any questions you might have, be it about the functionalities of our platform or about payments in general. They are available to customers and non-customers alike: <a href="mailto:support@maxipago.com">drop us an email</a>!</p>
+<p>Our support team is happy to help you with any questions you might have, be it about the functionalities of our platform or about payments in general. They are available to customers and non-customers alike and can be reached at support [@] maxipago [.] com.</p>
       </section>
     </div>
     <footer>
