@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>.NET Integration lib by maxipago</title>
+
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+    <script src="../javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>.NET Integration lib</h1>
+        <p>maxiPago! Smart Payments - .NET lib</p>
+        <p class="view"><a href="https://github.com/maxipago/DotNet-Integration-lib">Ver o Projeto no GitHub <small>maxipago/DotNet-Integration-lib</small></a></p>
+        <ul>
+          <li><a href="https://github.com/maxipago/DotNet-Integration-lib/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/maxipago/DotNet-Integration-lib/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/maxipago/DotNet-Integration-lib">Ver no <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+<p align="right"><small><strong>For English <a href="../">click here</a>.</small></strong></p>
+        <h2>Index</h2>
+
+<ol>
+<li><a href="#intro">Introdução</a></li>
+<li><a href="#setup">Configuração</a></li>
+<li><a href="#credentials">Ambiente e Credenciais</a></li>
+<li><a href="#types">Tipos de transação</a></li>
+<li><a href="#methods">Métodos</a></li>
+<li><a href="#requests">Requisições</a></li>
+<li><a href="#support">Suporte</a></li>
+</ol><h2 id="intro">Introdução</h2>
+
+<p>Esta biblioteca <strong>.NET</strong> visa facilitar a integração com a API da <strong>maxiPago! Smart Payments</strong>. Nossa plataforma permite aos lojistas virtuais aceitarem pagamentos em diversos países da América Latina e nos EUA e inclui funcionalidades como Cobrança Recorrente Automática, Pagamentos com 1-Clique, Estornos Online, Conciliação de Cartões de Crédito e Ferramentas Anti-Fraude. Se quiser saber mais sobre a <strong>maxiPago!</strong> visite <a href="http://www.maxipago.com/">www.maxipago.com</a>.</p>
+
+<p>Esta biblioteca traz todas as funcionalidades atualmente disponívels na plataforma e ela pode ser copiada e usada livremente por Lojas e desenvolvedores.</p>
+
+<p>Para ter uma visão mais aprofundada da nossa API baixe nossa documentação, <a href="http://www.maxipago.com/docs/maxiPago_API_Ultima.pdf">disponível aqui</a>. Se você está procurando por uma solução de página hospedada (*"hosted payment page"*), por favor veja a seção "<strong>smartPages!</strong>".</p>
+
+
+<h2 id="setup">Configuração</h2>
+
+<p>Configurar a biblioteca é bem simples: basta baixar o arquivo <a href="http://www.maxipago.com/docs/maxiPago.dll.zip">maxiPago.dll</a>, copiá-lo para seu servidor e importá-lo.</p>
+
+<p>Para importação use o código a seguir:</p>
+
+<div class="highlight"><pre>    <span class="k">using</span> <span class="nn">MaxiPago.DataContract</span><span class="p">;</span>
+    <span class="k">using</span> <span class="nn">MaxiPago.Gateway</span><span class="p">;</span>
+</pre></div>
+
+<h2 id="credentials">Ambiente e Credenciais</h2>
+
+<p>Para poder enviar requisições você precisará de Credenciais váliadas. Você pode consegui-las com nosso Suporte no endereço suporte [@] maxipago [.] com.</p>
+
+<p>A <strong>maxiPago!</strong> oferece um ambiente de teste (*"sandbox"*) totalmente funcional para simular as transações. Você precisa definir o ambiente para que a biblioteca saiba para onde enviar as transações.</p>
+
+<p>Para definier o ambiente use este código:</p>
+
+<div class="highlight"><pre>    <span class="n">transaction</span><span class="p">.</span><span class="n">Environment</span> <span class="p">=</span> <span class="s">"TEST"</span><span class="p">;</span>
+    <span class="n">transaction</span><span class="p">.</span><span class="n">Environment</span> <span class="p">=</span> <span class="s">"LIVE"</span><span class="p">;</span>
+</pre></div>
+
+<p>Você também precisa informar as suas Credenciais colocando as variáveis <strong>merchantId</strong> e <strong>merchantKey</strong> em cada requisição</p>
+
+<h2 id="types">Tipos de transação</h2>
+
+<ul>
+<li><p><strong>Venda Direta:</strong> combina a autorização e a captura em uma mesma chamada. Ao usar a requisição de Venda Direta você estará fazendo uma autorização no cartão do cliente e imediatamente capturando o valor total.</p></li>
+<li><p><strong>Void:</strong>: cancela uma captura antes do fechamento do lote final do dia. Aqui o dinheiro não troca de mãos. Você só pode cancelar a venda até às 23h59 do dia da captura.</p></li>
+<li><p><strong>Estorno:</strong> reverte uma transação de cartão de crédito, debitando o valor do Estabelecimento e devolvendo-o ao comprador. O estorno é uma operação financeira e, por esta razão, pode demorar alguns dias para serem aprovados por algumas processadoras.</p></li>
+<li><p><strong>Recorrente:</strong> agenda uma transação de cartão de crédito para ser cobrada em um intervalo específico, definido pelo lojista.</p></li>
+<li><p><strong>Armazenar Cartão:</strong> guarda um cartão em nosso sistema e devolve um token único, que pode ser usado em novas transações. <strong>Isto permite a implantação de pagamentos com 1-clique no seu site.</strong></p></li>
+<li><p><strong>Boleto:</strong> Transações feitas com Boleto funcionam de forma diferente das transações com cartão de crédito. Aqui geramos um boleto e retornamos uma URL para comprador que dá acesso ao boleto. Ela pode ser acessada a qualquer momento antes do vencimento do boleto e até 60 dias após o vencimento.</p></li>
+</ul><h2>
+<a name="mtodos-disponveis" class="anchor" href="#mtodos-disponveis"><span class="mini-icon mini-icon-link"></span></a>Métodos disponíveis</h2>
+
+<p>Esta é uma lista completa dos comandos que podem ser executados com esta biblioteca.</p>
+
+<h4>
+<a name="transaes-de-carto-de-crdito" class="anchor" href="#transaes-de-carto-de-crdito"><span class="mini-icon mini-icon-link"></span></a>Transações de Cartão de Crédito</h4>
+
+<ul>
+<li>Autorização </li>
+<li>Captura </li>
+<li>Venda Direta (Autorização + Capura) </li>
+<li>Autorização com Token (cartão salvo)</li>
+<li>Venda Direta com Token (cartão salvo) </li>
+<li>Cancelamento (*Void*)</li>
+<li>Estorno </li>
+</ul><h4>
+<a name="transaes-recorrentes" class="anchor" href="#transaes-recorrentes"><span class="mini-icon mini-icon-link"></span></a>Transações Recorrentes</h4>
+
+<ul>
+<li>Criar nova recorrência</li>
+</ul><h4>
+<a name="transaes-de-boleto" class="anchor" href="#transaes-de-boleto"><span class="mini-icon mini-icon-link"></span></a>Transações de Boleto</h4>
+
+<ul>
+<li>Criar boleto</li>
+</ul><h4>
+<a name="relatrios" class="anchor" href="#relatrios"><span class="mini-icon mini-icon-link"></span></a>Relatórios</h4>
+
+<ul>
+<li>Sondar uma transação</li>
+<li>Sondar uma lista de transações</li>
+<li>Paginar a lista de transações </li>
+<li>Sondar um relatório pendente</li>
+</ul><h4>
+<a name="cadastro-de-cliente--salvar-carto" class="anchor" href="#cadastro-de-cliente--salvar-carto"><span class="mini-icon mini-icon-link"></span></a>Cadastro de Cliente / Salvar Cartão</h4>
+
+<ul>
+<li>Criar um perfil  <em>(um perfil de cliente precisa ser criado antes de se salvar um cartão)</em>
+</li>
+<li>Atualizar um perfil </li>
+<li>Remover um perfil </li>
+<li>Adicionar um cartão de crédito</li>
+<li>Remover um cartão de crédito</li>
+</ul><h2 id="requests">Requisições</h2>
+
+<p>Você achará exemplos de cada uma das requisições neste repositório. Se você tiver alguma dúvida sobre o envio ou resposta da transação, <a href="http://www.maxipago.com/docs/maxiPago_API_Ultima.pdf">por favor consulte nossa documentação</a>. Você também pode entrar em contato com nosso suporte, se preferir.</p>
+
+<h2 id="support">Documentação e Suporte</h2>
+
+<p><a href="http://www.maxipago.com/docs/maxiPago_API_Ultima.pdf">A documentação completa da API da <strong>maxiPago!</strong> pode ser encontrada aqui</a>.</p>
+
+<p>Nossa equipe de suporte está à disposição para ajudá-lo com quaisquer assunto, seja sobre funcionalidades de nossa plataforma ou sobre pagamentos em geral. Eles estão disponíveis para clientes e não-clientes no endereço suporte [@] maxipago [.] com.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/maxipago">maxipago</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
