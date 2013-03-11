@@ -120,6 +120,9 @@ namespace MaxiPago.DataContract.Transactional {
         //[XmlElement("partiallyApprovedAmount")]
         //public string PartiallyApprovedAmount { get; set; }
 
+        [XmlElement("onlineDebitUrl")]
+        public string OnlineDebitUrl { get; set; }
+
     }
 
 }

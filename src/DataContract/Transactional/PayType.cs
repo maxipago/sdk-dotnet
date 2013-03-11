@@ -22,5 +22,9 @@ namespace MaxiPago.DataContract.Transactional {
         public Boleto Boleto { get; set; }
         public bool ShouldSerializeBoleto() { return this.Boleto != null; }
 
+        [XmlElement("onlineDebit")]
+        public OnlineDebit OnlineDebit { get; set; }
+        public bool ShouldSerializeOnlineDebit() { return this.OnlineDebit != null; }
+
     }
 }

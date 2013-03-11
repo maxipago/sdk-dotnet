@@ -1,4 +1,4 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +20,7 @@ namespace MaxiPago.Gateway {
         private TransactionRequest request;
 
         /// <summary>
-        /// Faz uma autorizaÁ„o com captura.
+        /// Faz uma autoriza√ß√£o com captura.
         /// </summary>
         public ResponseBase Sale(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
@@ -39,8 +39,7 @@ namespace MaxiPago.Gateway {
         /// </summary>
         private void FillRequestBase(String operation, String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
-                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode, String fraudCheck)
-        {
+                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode, String fraudCheck) {
 
             this.request = new TransactionRequest(merchantId, merchantKey);
 
@@ -70,7 +69,7 @@ namespace MaxiPago.Gateway {
 
             int tranInstallments = int.Parse(numberOfInstallments);
 
-            //Verifica se vai precisar criar o nÛ de parcelas e juros.
+            //Verifica se vai precisar criar o n√≥ de parcelas e juros.
             if (!String.IsNullOrEmpty(chargeInterest) && tranInstallments > 1) {
                 payment.CreditInstallment = new CreditInstallment();
                 payment.CreditInstallment.ChargeInterest = chargeInterest.ToUpper();
@@ -92,7 +91,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma autorizaÁ„o com captura.
+        /// Faz uma autoriza√ß√£o com captura.
         /// </summary>
         public ResponseBase Sale(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
@@ -140,7 +139,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma autorizaÁ„o com captura passando o token do cart„o j· salvo na base.
+        /// Faz uma autoriza√ß√£o com captura passando o token do cart√£o j√° salvo na base.
         /// </summary>
         public ResponseBase Sale(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
                                 , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode, String fraudCheck) {
@@ -152,7 +151,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma autorizaÁ„o com captura salvando o n˙mero de cart„o automaticamente.
+        /// Faz uma autoriza√ß√£o com captura salvando o n√∫mero de cart√£o automaticamente.
         /// </summary>
         public ResponseBase Sale(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
                                    , String creditCardNumber, String expMonth, String expYear, String cvvInd, String cvvNumber
@@ -171,7 +170,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma AutorizaÁ„o.
+        /// Faz uma Autoriza√ß√£o.
         /// </summary>
         public ResponseBase Auth(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
@@ -186,7 +185,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma AutorizaÁ„o.
+        /// Faz uma Autoriza√ß√£o.
         /// </summary>
         public ResponseBase Auth(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
@@ -233,7 +232,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma autorizaÁ„o passando o token do cart„o j· salvo na base.
+        /// Faz uma autoriza√ß√£o passando o token do cart√£o j√° salvo na base.
         /// </summary>
         public ResponseBase Auth(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
                                 , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode, String fraudCheck) {
@@ -245,7 +244,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma autorizaÁ„o salvando o n˙mero de cart„o automaticamente.
+        /// Faz uma autoriza√ß√£o salvando o n√∫mero de cart√£o automaticamente.
         /// </summary>
         public ResponseBase Auth(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
                                    , String creditCardNumber, String expMonth, String expYear, String cvvInd, String cvvNumber
@@ -264,7 +263,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma requisiÁ„o de boleto.
+        /// Faz uma requisi√ß√£o de boleto.
         /// </summary>
         public ResponseBase Boleto(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
                                  , String ipAddress, String customerIdExt, String expirationDate, String number, String instructions
@@ -314,7 +313,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz a transaÁ„o passando o token do cart„o j· salvo na base.
+        /// Faz a transa√ß√£o passando o token do cart√£o j√° salvo na base.
         /// </summary>
         private ResponseBase PayWithToken(String operation, String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
                                 , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode, String fraudCheck) {
@@ -345,7 +344,7 @@ namespace MaxiPago.Gateway {
 
             int tranInstallments = int.Parse(numberOfInstallments);
 
-            //Verifica se vai precisar criar o nÛ de parcelas e juros.
+            //Verifica se vai precisar criar o n√≥ de parcelas e juros.
             if (!String.IsNullOrEmpty(chargeInterest) && tranInstallments > 1)
             {
                 payment.CreditInstallment = new CreditInstallment();
@@ -365,7 +364,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Passa uma transaÁ„o salvando o n˙mero de cart„o automaticamente.
+        /// Passa uma transa√ß√£o salvando o n√∫mero de cart√£o automaticamente.
         /// </summary>
         private ResponseBase PaySavingCreditCardAutomatically(String operation, String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
                                                             , String creditCardNumber, String expMonth, String expYear, String cvvInd, String cvvNumber
@@ -414,7 +413,7 @@ namespace MaxiPago.Gateway {
 
             int tranInstallments = int.Parse(numberOfInstallments);
 
-            //Verifica se vai precisar criar o nÛ de parcelas e juros.
+            //Verifica se vai precisar criar o n√≥ de parcelas e juros.
             if (!String.IsNullOrEmpty(chargeInterest) && tranInstallments > 1)
             {
                 payment.CreditInstallment = new CreditInstallment();
@@ -503,7 +502,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma recorrÍncia.
+        /// Faz uma recorr√™ncia.
         /// </summary>
         public ResponseBase Recurring(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
             , String creditCardNumber, String expMonth, String expYear, String cvvInd, String cvvNumber, String processorId
@@ -532,7 +531,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Faz uma recorrÍncia com token.
+        /// Faz uma recorr√™ncia com token.
         /// </summary>
         public ResponseBase Recurring(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
             , String customerId, String token, String processorId, String numberOfInstallments
@@ -557,7 +556,7 @@ namespace MaxiPago.Gateway {
         }
 
         /// <summary>
-        /// Efetua o preenchimento comum aos mÈtodos de Recorrente
+        /// Efetua o preenchimento comum aos m√©todos de Recorrente
         /// </summary>
         private void FillRecurringBase(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
             , String processorId, String numberOfInstallments, String chargeInterest
@@ -585,7 +584,7 @@ namespace MaxiPago.Gateway {
 
             int tranInstallments = int.Parse(numberOfInstallments);
 
-            //Verifica se vai precisar criar o nÛ de parcelas e juros.
+            //Verifica se vai precisar criar o n√≥ de parcelas e juros.
             if (!String.IsNullOrEmpty(chargeInterest) && tranInstallments > 1)
             {
                 payment.CreditInstallment = new CreditInstallment();
@@ -602,6 +601,39 @@ namespace MaxiPago.Gateway {
             recurring.Installments = installments;
             recurring.Period = period;
             recurring.StartDate = startDate;
+
+        }
+
+        public ResponseBase OnlineDebit(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal
+                                    , String processorId, String parametersUrl, String ipAddress, String customerIdExt) {
+
+            this.request = new TransactionRequest(merchantId, merchantKey);
+
+            Order order = this.request.Order;
+            RequestBase sale = new RequestBase();
+            order.Sale = sale;
+
+            sale.ReferenceNum = referenceNum;
+            sale.ProcessorId = processorId;
+            sale.IpAddress = ipAddress;
+            sale.CustomerIdExt = customerIdExt;
+
+            Payment payment = new Payment();
+            sale.Payment = payment;
+            payment.ChargeTotal = chargeTotal;
+
+            TransactionDetail detail = sale.TransactionDetail;
+            PayType payType = detail.PayType;
+
+            OnlineDebit debit = new OnlineDebit();
+            payType.OnlineDebit = debit;
+
+            if (parametersUrl == null)
+                parametersUrl = String.Empty;
+
+            debit.ParametersURL = parametersUrl;
+
+            return new Utils().SendRequest<TransactionRequest>(this.request, this.Environment);
 
         }
 
