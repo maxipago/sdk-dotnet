@@ -15,7 +15,7 @@ namespace MaxiPagoExample
         "100", // 'merchantId' - REQUIRED: Merchant ID assigned by maxiPago! //
         "merchant-key", // 'merchantKey' - REQUIRED: Merchant Key assigned by maxiPago! //
         "ORD238937282", // 'referenceNum' - REQUIRED: Merchant internal order number //
-        "10.00", // 'chargeTotal' - REQUIRED: Transaction amount in US format //
+        10.00, // 'chargeTotal' - REQUIRED: Transaction amount in US format //
         "12", // 'processorId' - REQUIRED: Bank chosen to process transaction. Use '12' for Boleto testing. //
         "127.0.0.1", // 'ipAddress' - Optional //
         "CUST12739", // 'customerIdExt' - Optional: Merchant code for customer //

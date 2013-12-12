@@ -15,7 +15,7 @@ namespace MaxiPagoExample
         "100", // 'merchantId' - REQUIRED: Merchant ID assigned by maxiPago!  //
         "merchant-key", // 'merchantKey' - REQUIRED: Merchant Key assigned by maxiPago! //
         "ORD22382820", // 'referenceNum' - REQUIRED: Merchant internal order number //
-        "150.00", // 'chargeTotal' - REQUIRED: Transaction amount in US format //
+        150.00, // 'chargeTotal' - REQUIRED: Transaction amount in US format //
         "5555555555554444", // 'creditCardNumber' - REQUIRED: Full credit card number //
         "10", // 'expMonth' - REQUIRED: Credit card expiration month with 2 digits //
         "2020", // 'expYear' - REQUIRED: Credit card expiration year with 4 digits //

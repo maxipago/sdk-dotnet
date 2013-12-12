@@ -15,7 +15,7 @@ namespace MaxiPagoExample
         "100", // 'merchantId' - REQUIRED: Merchant ID assigned by maxiPago!  //
         "merchant-key", // 'merchantKey' - REQUIRED: Merchant Key assigned by maxiPago! //
         "ORD4828381B", // 'referenceNum' - REQUIRED: Merchant internal order number //
-        "432.31", // 'chargeTotal' - REQUIRED: Transaction amount in US format //
+        432.31, // 'chargeTotal' - REQUIRED: Transaction amount in US format //
         "1", // 'processorId' - REQUIRED: Acquirer code for routing transactions. Use '1' for testing. //
         "eBUv/SIBJv0=", // 'token' - REQUIRED: Credit card token assigned by maxiPago! //
         "999", // 'customerId' - REQUIRED: Customer ID created by maxiPago! //

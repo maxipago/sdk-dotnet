@@ -15,7 +15,7 @@ namespace MaxiPagoExample
         "100", // 'merchantId' - REQUIRED: Merchant ID assigned by maxiPago!  //
         "merchant-key", // 'merchantKey' - REQUIRED: Merchant Key assigned by maxiPago! //
         "ORD937393483", // 'referenceNum' - REQUIRED: Merchant internal order number //
-        "133.45", // 'chargeTotal' - REQUIRED: Transaction amount in US format //
+        133.45, // 'chargeTotal' - REQUIRED: Transaction amount in US format //
         "4111111111111111", // 'creditCardNumber' - REQUIRED: Full credit card number //
         "03", // 'expMonth' - REQUIRED: Credit card expiration month with 2 digits //
         "2015", // 'expYear' - REQUIRED: Credit card expiration year with 4 digits //
@@ -26,7 +26,7 @@ namespace MaxiPagoExample
         "2", // 'numberOfInstallments' - Optional: Number of installments for credit card purchases ("parcelas") //
         // Send 'null' if no installments are used //
         "N", // 'chargeInterest' - Optional: Charge interest flag (Y/N) for installment purchase ("com" e "sem" juros) //
-        "1270.0.1", // 'ipAddress' - Optional //
+        "127.0.0.1", // 'ipAddress' - Optional //
         null // 'customerIdExt' - Optional: Merchant internal customer number //
         "John Smith", // 'billingName' - RECOMMENDED: Customer name //
         "Rua de Teste, 123", // 'billingAddress' - Optional: Customer address //
@@ -60,7 +60,8 @@ namespace MaxiPagoExample
         }
       }
       else if (response.IsErrorResponse) {
-        ErrorResponse result = response as ErrorResponse;
+        ErrorResponse result = 
+response as ErrorResponse;
         // Fail
       }
     }
