@@ -24,11 +24,12 @@ namespace MaxiPago.Gateway {
         /// </summary>
         public ResponseBase Sale(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
-                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode, String fraudCheck) {
+                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode
+                , String fraudCheck, String softDescriptor, decimal? iataFee) {
 
             this.FillRequestBase("sale", merchantId, merchantKey, referenceNum, chargeTotal, creditCardNumber, expMonth, expYear
-                , cvvInd, cvvNumber, authentication, processorId, numberOfInstallments
-                , chargeInterest, ipAddress, customerIdExt, currencyCode, fraudCheck);
+                , cvvInd, cvvNumber, authentication, processorId, numberOfInstallments, chargeInterest
+                , ipAddress, customerIdExt, currencyCode, fraudCheck, softDescriptor, iataFee);
 
             return new Utils().SendRequest<TransactionRequest>(this.request, this.Environment);
 
@@ -39,7 +40,8 @@ namespace MaxiPago.Gateway {
         /// </summary>
         private void FillRequestBase(String operation, String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
-                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode, String fraudCheck) {
+                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode
+                , String fraudCheck, String softDescriptor, decimal? iataFee) {
 
             this.request = new TransactionRequest(merchantId, merchantKey);
 
@@ -63,6 +65,8 @@ namespace MaxiPago.Gateway {
             rBase.Payment = payment;
             payment.ChargeTotal = chargeTotal;
             payment.CurrencyCode = currencyCode;
+            payment.SoftDescriptor = softDescriptor;
+            payment.IataFee = iataFee;
 
             if (String.IsNullOrEmpty(numberOfInstallments))
                 numberOfInstallments = "0";
@@ -99,12 +103,13 @@ namespace MaxiPago.Gateway {
                 , String billingAddress, String billingAddress2, String billingCity, String billingState, String billingPostalCode
                 , String billingCountry, String billingPhone, String billingEmail, String shippingName, String shippingAddress
                 , String shippingAddress2, String shippingCity, String shippingState, String shippingPostalCode
-                , String shippingCountry, String shippingPhone, String shippingEmail, String currencyCode, String fraudCheck) {
+                , String shippingCountry, String shippingPhone, String shippingEmail, String currencyCode, String fraudCheck
+                , String softDescriptor, decimal? iataFee) {
 
 
             this.FillRequestBase("sale", merchantId, merchantKey, referenceNum, chargeTotal, creditCardNumber, expMonth, expYear
-                    , cvvInd, cvvNumber, authentication, processorId, numberOfInstallments
-                    , chargeInterest, ipAddress, customerIdExt, currencyCode, fraudCheck);
+                    , cvvInd, cvvNumber, authentication, processorId, numberOfInstallments, chargeInterest
+                    , ipAddress, customerIdExt, currencyCode, fraudCheck, softDescriptor, iataFee);
 
             RequestBase sale = this.request.Order.Sale;
 
@@ -142,11 +147,12 @@ namespace MaxiPago.Gateway {
         /// Faz uma autorização com captura passando o token do cartão já salvo na base.
         /// </summary>
         public ResponseBase Sale(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
-                                , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode, String fraudCheck) {
+                                , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode
+                                , String fraudCheck, String softDescriptor, decimal? iataFee) {
 
 
             return this.PayWithToken("sale", merchantId, merchantKey, referenceNum, chargeTotal, processorId, token, customerId
-                                    , numberOfInstallments, chargeInterest, ipAddress, currencyCode, fraudCheck);
+                                    , numberOfInstallments, chargeInterest, ipAddress, currencyCode, fraudCheck, softDescriptor, iataFee);
 
         }
 
@@ -159,13 +165,14 @@ namespace MaxiPago.Gateway {
                                    , String customerToken, String onFileEndDate, String onFilePermission, String onFileComment
                                    , String onFileMaxChargeAmount, String billingName, String billingAddress, String billingAddress2
                                    , String billingCity, String billingState, String billingPostalCode, String billingCountry
-                                   , String billingPhone, String billingEmail, String currencyCode, String fraudCheck) {
+                                   , String billingPhone, String billingEmail, String currencyCode, String fraudCheck
+                                   , String softDescriptor, decimal? iataFee) {
 
             return PaySavingCreditCardAutomatically("sale", merchantId, merchantKey, referenceNum, chargeTotal, creditCardNumber, expMonth, expYear
                                                     , cvvInd, cvvNumber, processorId, numberOfInstallments, chargeInterest, ipAddress, customerToken
                                                     , onFileEndDate, onFilePermission, onFileComment, onFileMaxChargeAmount, billingName, billingAddress
                                                     , billingAddress2, billingCity, billingState, billingPostalCode, billingCountry, billingPhone, billingEmail
-                                                    , currencyCode, fraudCheck);
+                                                    , currencyCode, fraudCheck, softDescriptor, iataFee);
 
         }
 
@@ -174,11 +181,12 @@ namespace MaxiPago.Gateway {
         /// </summary>
         public ResponseBase Auth(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String creditCardNumber
                 , String expMonth, String expYear, String cvvInd, String cvvNumber, String authentication, String processorId
-                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode, String fraudCheck) {
+                , String numberOfInstallments, String chargeInterest, String ipAddress, String customerIdExt, String currencyCode
+                , String fraudCheck, String softDescriptor, decimal? iataFee) {
 
             this.FillRequestBase("auth", merchantId, merchantKey, referenceNum, chargeTotal, creditCardNumber, expMonth, expYear
                     , cvvInd, cvvNumber, authentication, processorId, numberOfInstallments
-                    , chargeInterest, ipAddress, customerIdExt, currencyCode, fraudCheck);
+                    , chargeInterest, ipAddress, customerIdExt, currencyCode, fraudCheck, softDescriptor, iataFee);
 
             return new Utils().SendRequest<TransactionRequest>(this.request, this.Environment);
 
@@ -193,11 +201,11 @@ namespace MaxiPago.Gateway {
                 , String billingAddress, String billingAddress2, String billingCity, String billingState, String billingPostalCode
                 , String billingCountry, String billingPhone, String billingEmail, String shippingName, String shippingAddress
                 , String shippingAddress2, String shippingCity, String shippingState, String shippingPostalCode, String shippingCountry
-                , String shippingPhone, String shippingEmail, String currencyCode, String fraudCheck) {
+                , String shippingPhone, String shippingEmail, String currencyCode, String fraudCheck, String softDescriptor, decimal? iataFee) {
 
             this.FillRequestBase("auth", merchantId, merchantKey, referenceNum, chargeTotal, creditCardNumber, expMonth, expYear
                     , cvvInd, cvvNumber, authentication, processorId, numberOfInstallments
-                    , chargeInterest, ipAddress, customerIdExt, currencyCode, fraudCheck);
+                    , chargeInterest, ipAddress, customerIdExt, currencyCode, fraudCheck, softDescriptor, iataFee);
 
             RequestBase auth = this.request.Order.Auth;
 
@@ -235,11 +243,12 @@ namespace MaxiPago.Gateway {
         /// Faz uma autorização passando o token do cartão já salvo na base.
         /// </summary>
         public ResponseBase Auth(String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
-                                , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode, String fraudCheck) {
+                                , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode
+                                , String fraudCheck, String softDescriptor, decimal? iataFee) {
 
 
             return this.PayWithToken("auth", merchantId, merchantKey, referenceNum, chargeTotal, processorId, token, customerId
-                                    , numberOfInstallments, chargeInterest, ipAddress, currencyCode, fraudCheck);
+                                    , numberOfInstallments, chargeInterest, ipAddress, currencyCode, fraudCheck, softDescriptor, iataFee);
 
         }
 
@@ -252,13 +261,14 @@ namespace MaxiPago.Gateway {
                                    , String customerToken, String onFileEndDate, String onFilePermission, String onFileComment
                                    , String onFileMaxChargeAmount, String billingName, String billingAddress, String billingAddress2
                                    , String billingCity, String billingState, String billingPostalCode, String billingCountry
-                                   , String billingPhone, String billingEmail, String currencyCode, String fraudCheck) {
+                                   , String billingPhone, String billingEmail, String currencyCode, String fraudCheck
+                                   , String softDescriptor, decimal? iataFee) {
 
             return PaySavingCreditCardAutomatically("auth", merchantId, merchantKey, referenceNum, chargeTotal, creditCardNumber, expMonth, expYear
                                                     , cvvInd, cvvNumber, processorId, numberOfInstallments, chargeInterest, ipAddress, customerToken
                                                     , onFileEndDate, onFilePermission, onFileComment, onFileMaxChargeAmount, billingName, billingAddress
                                                     , billingAddress2, billingCity, billingState, billingPostalCode, billingCountry, billingPhone, billingEmail
-                                                    , currencyCode, fraudCheck);
+                                                    , currencyCode, fraudCheck, softDescriptor, iataFee);
 
         }
 
@@ -316,7 +326,8 @@ namespace MaxiPago.Gateway {
         /// Faz a transação passando o token do cartão já salvo na base.
         /// </summary>
         private ResponseBase PayWithToken(String operation, String merchantId, String merchantKey, String referenceNum, decimal chargeTotal, String processorId
-                                , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode, String fraudCheck) {
+                                , String token, String customerId, String numberOfInstallments, String chargeInterest, String ipAddress, String currencyCode
+                                , String fraudCheck, String softDescriptor, decimal? iataFee) {
 
             this.request = new TransactionRequest(merchantId, merchantKey);
 
@@ -338,6 +349,8 @@ namespace MaxiPago.Gateway {
             rBase.Payment = payment;
             payment.ChargeTotal = chargeTotal;
             payment.CurrencyCode = currencyCode;
+            payment.SoftDescriptor = softDescriptor;
+            payment.IataFee = iataFee;
 
             if (String.IsNullOrEmpty(numberOfInstallments))
                 numberOfInstallments = "0";
@@ -372,7 +385,8 @@ namespace MaxiPago.Gateway {
                                                             , String customerToken, String onFileEndDate, String onFilePermission, String onFileComment
                                                             , String onFileMaxChargeAmount, String billingName, String billingAddress, String billingAddress2
                                                             , String billingCity, String billingState, String billingPostalCode, String billingCountry
-                                                            , String billingPhone, String billingEmail, String currencyCode, String fraudCheck) {
+                                                            , String billingPhone, String billingEmail, String currencyCode, String fraudCheck, String softDescriptor
+                                                            , decimal? iataFee) {
 
             this.request = new TransactionRequest(merchantId, merchantKey);
 
@@ -407,6 +421,8 @@ namespace MaxiPago.Gateway {
             rBase.Payment = payment;
             payment.ChargeTotal = chargeTotal;
             payment.CurrencyCode = currencyCode;
+            payment.SoftDescriptor = softDescriptor;
+            payment.IataFee = iataFee;
 
             if (String.IsNullOrEmpty(numberOfInstallments))
                 numberOfInstallments = "0";

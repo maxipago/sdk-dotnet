@@ -22,6 +22,16 @@ namespace MaxiPago.DataContract.Transactional {
         public string CurrencyCode { get; set; }
 
         public bool ShouldSerializeCurrencyCode() { return this.CurrencyCode != null; }
+		
+		[XmlElement("softDescriptor")]
+        public string SoftDescriptor { get; set; }
+        /// Verifica se o valor da propriedade é nulo, se sim, não serializa esse campo no xml
+        public bool ShouldSerializeSoftDescriptor() { return this.SoftDescriptor != null; }
+
+        [XmlElement("iataFee")]
+        public decimal? IataFee { get; set; }
+        /// Verifica se o valor da propriedade é nulo, se sim, não serializa esse campo no xml
+        public bool ShouldSerializeProductDescriptor() { return this.IataFee != null; }
 
     }
 }

@@ -180,6 +180,24 @@ namespace MaxiPago.DataContract.Reports {
         /// </summary>
         [XmlElement("customField5")]
         public String CustomField5 { get; set; }
+		
+		/// <summary>
+        /// Url para imprimir o boleto.
+        /// </summary>
+        [XmlElement("boletoUrl")]
+        public String BoletoUrl { get; set; }
+
+        /// <summary>
+        /// Número de parcelas.
+        /// </summary>
+        [XmlElement("numberOfInstallments")]
+        public String NumberOfInstallments { get; set; }
+
+        /// <summary>
+        /// Juros.
+        /// </summary>
+        [XmlElement("chargeInterest")]
+        public String ChargeInterest { get; set; }
 
 
 
