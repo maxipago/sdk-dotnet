@@ -31,7 +31,7 @@ namespace MaxiPago.DataContract.Transactional {
         [XmlElement("iataFee")]
         public decimal? IataFee { get; set; }
         /// Verifica se o valor da propriedade é nulo, se sim, não serializa esse campo no xml
-        public bool ShouldSerializeProductDescriptor() { return this.IataFee != null; }
+        public bool ShouldSerializeIataFee() { return this.IataFee != null; }
 
     }
 }
