@@ -42,7 +42,9 @@ namespace MaxiPagoExample
         null, // 'shippingCountry' - Optional: Shipping country per ISO 3166-2 //
         null, // 'shippingPhone' - Optional: Shipping phone number //
         null, // 'shippingEmail' - Optional: Shipping email address //
-        "BRL" // 'currencyCode' - Optional: Currency code. Valid only for ChasePaymentech. Please see full documentation for more info //
+        "BRL", // 'currencyCode' - Optional: Currency code. Valid only for ChasePaymentech. Please see full documentation for more info //
+		null, // 'softDescriptor' - Optional
+		null // 'iataFee' - Optional		
       );
       
       if (response.IsTransactionResponse) {
