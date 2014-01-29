@@ -13,6 +13,9 @@ namespace MaxiPago.DataContract.Reports {
         [XmlElement("transactionId")]
         public String TransactionId { get; set; }
 
+        [XmlElement("orderId")]
+        public String OrderId { get; set; }
+
         [XmlElement("period")]
         public String Period { get; set; }
 

@@ -51,6 +51,18 @@ namespace MaxiPago.Gateway {
             return new Utils().SendRequest<RapiRequest>(this.request, this.Environment) as RapiResponse;
         }
 
+        /// Queries one or more transactions by orderId.
+        public RapiResponse GetTransactionDetailReportByOrderId(String merchantId, String merchantKey, String orderId) {
+
+            this.request = new RapiRequest(merchantId, merchantKey);
+            this.request.Command = "transactionDetailReport";
+
+            FilterOptions filter = this.request.ReportRequest.FilterOptions;
+            filter.OrderId = orderId;
+
+            return new Utils().SendRequest<RapiRequest>(this.request, this.Environment) as RapiResponse;
+        }
+
         /// Flips through report pages
         public RapiResponse GetTransactionDetailReport(String merchantId, String merchantKey, String pageToken, String pageNumber) {
 
