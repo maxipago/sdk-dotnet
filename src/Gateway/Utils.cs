@@ -107,7 +107,7 @@ namespace MaxiPago.Gateway {
             WebResponse rsp = null;
             req = (System.Net.HttpWebRequest)HttpWebRequest.Create(url);
             req.Method = "POST";
-            req.ContentType = "text/xml";
+			req.ContentType = "text/xml; charset=UTF-8";
 
             req.Timeout = 99999;
 
