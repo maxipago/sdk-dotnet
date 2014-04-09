@@ -529,6 +529,7 @@ namespace MaxiPago.Gateway {
             FillRecurringBase(merchantId, merchantKey, referenceNum, chargeTotal, processorId, numberOfInstallments
                 , chargeInterest, ipAddress, action, startDate, frequency, period, installments
                 , failureThreshold, currencyCode);
+                            //ATENCAO: installments é o campo a ser usado (numberOfInstallments é referente ao Parcelamento)
 
             TransactionDetail detail = this.request.Order.RecurringPayment.TransactionDetail;
 
