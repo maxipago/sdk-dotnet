@@ -53,6 +53,7 @@
     <Compile Include="DataContract\Transactional\CreditInstallment.cs" />
     <Compile Include="DataContract\Transactional\ErrorResponse.cs" />
     <Compile Include="DataContract\Transactional\OnFile.cs" />
+    <Compile Include="DataContract\Transactional\OnlineDebit.cs" />
     <Compile Include="DataContract\Transactional\Recurring.cs" />
     <Compile Include="DataContract\Reports\FilterOptions.cs" />
     <Compile Include="DataContract\Reports\HeaderResponse.cs" />
