@@ -1,9 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using MaxiPago.DataContract;
 using MaxiPago.DataContract.NonTransactional;
+using MaxiPago.DataContract.Transactional;
+using System;
 
 namespace MaxiPago.Gateway
 {
@@ -154,6 +152,73 @@ namespace MaxiPago.Gateway
 
             return new Utils().SendRequest<ApiRequest>(this.request, this.Environment) as ApiResponse;
 
+        }
+
+
+        public ApiResponse AddPaymentOrder(String merchantId, String merchantKey, String requestReferenceNum, String requestFraudCheck
+                                    , String billingAddress, String billingAddress2, String billingDistrict, String billingCity
+                                    , String billingState, String billingPostalCode, String billingCountry, String billingEmail
+                                    , String billingCustomerIdExt, String billingFirstName, String billingLastName, String billingDob
+                                    , String billingSex, String billingPhone, String detailDescription, String detailComments
+                                    , String detailEmailSubject, String detailExpirationDate, String creditCardProcessorID, String creditCardOperation
+                                    , String creditCardNumberOfInstallments, String creditCardCurrencyCode, String creditCardAmount)
+        {
+            this.request = new ApiRequest(merchantId, merchantKey);
+
+            this.request.Command = "add-payment-order";
+
+            CommandRequest request = new CommandRequest();
+
+            request.ReferenceNum = requestReferenceNum;
+            request.FraudCheck = requestFraudCheck;
+
+            this.request.CommandRequest = request;
+
+            Billing billing = new Billing();
+
+            billing.Address1 = billingAddress;
+            billing.Address2 = billingAddress2;
+            billing.District = billingDistrict;
+            billing.City = billingCity;
+            billing.State = billingState;
+            billing.Postalcode = billingPostalCode;
+            billing.Country = billingCountry;
+            billing.Email = billingEmail;
+            billing.CustomerIdExt = billingCustomerIdExt;
+            billing.FirstName = billingFirstName;
+            billing.LastName = billingLastName;
+            billing.Dob = billingDob;
+            billing.Sex = billingSex;
+            billing.Phone = billingPhone;
+
+            request.Billing = billing;
+
+            TransactionDetail detail = new TransactionDetail();
+
+            detail.Description = detailDescription;
+            detail.Comments = detailComments;
+            detail.EmailSubject = detailEmailSubject;
+            detail.ExpirationDate = detailExpirationDate;
+
+
+            PayType payType = new PayType();
+
+            CreditCard creditCard = new CreditCard();
+
+            creditCard.ProcessorID = creditCardProcessorID;
+            creditCard.Operation = creditCardOperation;
+            creditCard.NumberOfInstallments = creditCardNumberOfInstallments;
+            creditCard.CurrencyCode = creditCardCurrencyCode;
+            creditCard.Amount = creditCardAmount;
+            creditCard.ECommInd = null;
+
+            payType.CreditCard = creditCard;
+
+            detail.PayType = payType;
+
+            request.TransactionDetail = detail;
+
+            return new Utils().SendRequest<ApiRequest>(this.request, this.Environment) as ApiResponse;
         }
 
     }

@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
-namespace MaxiPago.DataContract.Transactional {
-    
+namespace MaxiPago.DataContract.Transactional
+{
+
     [Serializable]
     [XmlRoot("creditCard")]
-    public class CreditCard {
-
-        public CreditCard() {
-            this.ecommInd = "eci";
-        }
+    public class CreditCard
+    {               
 
         [XmlElement("number")]
         public string Number { get; set; }
@@ -28,14 +23,29 @@ namespace MaxiPago.DataContract.Transactional {
 
         [XmlElement("cvvNumber")]
         public string CvvNumber { get; set; }
-
-        private string ecommInd;
-
+                
         [XmlElement("eCommInd")]
-        public string ECommInd { 
-            get { return this.ecommInd; }
-            set { }
-        }
+        public string ECommInd  { get; set; } = "eci";
+
+        [XmlElement("processorID")]
+        public string ProcessorID { get; set; }
+        public bool ShouldSerializeProcessorID() { return !string.IsNullOrEmpty(this.ProcessorID); }
+
+        [XmlElement("operation")]
+        public string Operation { get; set; }
+        public bool ShouldSerializeOperation() { return !string.IsNullOrEmpty(this.Operation); }
+
+        [XmlElement("numberOfInstallments")]
+        public string NumberOfInstallments { get; set; }
+        public bool ShouldSerializeNumberOfInstallments() { return !string.IsNullOrEmpty(this.NumberOfInstallments); }
+
+        [XmlElement("currencyCode")]
+        public string CurrencyCode { get; set; }
+        public bool ShouldSerializeCurrencyCode() { return !string.IsNullOrEmpty(this.CurrencyCode); }
+
+        [XmlElement("amount")]
+        public string Amount { get; set; }
+        public bool ShouldSerializeAmount() { return !string.IsNullOrEmpty(this.Amount); }
 
     }
 }

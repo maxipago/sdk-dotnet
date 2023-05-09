@@ -1,3 +1,4 @@
+using MaxiPago.DataContract.Transactional;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -138,5 +139,18 @@ namespace MaxiPago.DataContract.NonTransactional {
         public string OnFileMaxChargeAmount { get; set; }
         public bool ShouldSerializeOnFileMaxChargeAmount() { return !string.IsNullOrEmpty(this.OnFileMaxChargeAmount); }
 
+        [XmlElement("referenceNum")]
+        public string ReferenceNum { get; set; }
+        public bool ShouldSerializeReferenceNum() { return !string.IsNullOrEmpty(this.ReferenceNum); }
+
+        [XmlElement("fraudCheck")]
+        public string FraudCheck { get; set; }
+        public bool ShouldSerializeFraudCheck() { return !string.IsNullOrEmpty(this.FraudCheck); }
+
+        [XmlElement("billing")]
+        public Billing Billing { get; set; }
+
+        [XmlElement("transactionDetail")]
+        public TransactionDetail TransactionDetail { get; set; }
     }
 }

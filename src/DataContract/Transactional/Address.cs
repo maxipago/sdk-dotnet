@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Xml.Serialization;
 
-namespace MaxiPago.DataContract.Transactional {
-    
+namespace MaxiPago.DataContract.Transactional
+{
+
     [Serializable]
     public class Address {
 
@@ -24,6 +22,10 @@ namespace MaxiPago.DataContract.Transactional {
         [XmlElement("city")]
         public string City { get; set; }
         public bool ShouldSerializeCity() { return !string.IsNullOrEmpty(this.City); }
+
+        [XmlElement("district")]
+        public string District { get; set; }
+        public bool ShouldSerializeDistrict() { return !string.IsNullOrEmpty(this.District); }
 
         [XmlElement("state")]
         public string State { get; set; }
@@ -45,5 +47,24 @@ namespace MaxiPago.DataContract.Transactional {
         public string Email { get; set; }
         public bool ShouldSerializeEmail() { return !string.IsNullOrEmpty(this.Email); }
 
+        [XmlElement("customerIdExt")]
+        public string CustomerIdExt { get; set; }
+        public bool ShouldSerializeCustomerIdExt() { return !string.IsNullOrEmpty(this.CustomerIdExt); }
+
+        [XmlElement("firstName")]
+        public string FirstName { get; set; }
+        public bool ShouldSerializeFirstName() { return !string.IsNullOrEmpty(this.FirstName); }
+
+        [XmlElement("lastName")]
+        public string LastName { get; set; }
+        public bool ShouldSerializeLastName() { return !string.IsNullOrEmpty(this.LastName); }
+
+        [XmlElement("dob")]
+        public string Dob { get; set; }
+        public bool ShouldSerializeDob() { return !string.IsNullOrEmpty(this.Dob); }
+
+        [XmlElement("sex")]
+        public string Sex { get; set; }
+        public bool ShouldSerializeSex() { return !string.IsNullOrEmpty(this.Sex); }
     }
 }
